@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.br.fatecrl.conta.model.PessoaFisica;
 import com.br.fatecrl.conta.repository.PessoaFisicaRepository;
 
-public class PessoaFisicaService implements IService<PessoaFisica>{
-
-    @Autowired
+@Service
+public class PessoaFisicaService implements IService<PessoaFisica> {
+	@Autowired
 	private PessoaFisicaRepository repository;
 
 	public PessoaFisicaService() {
@@ -50,5 +51,4 @@ public class PessoaFisicaService implements IService<PessoaFisica>{
 		}
 		return false;
 	}
-    
 }

@@ -32,6 +32,8 @@ public abstract class Cliente extends AbstractEntity {
 		this.endereco = endereco;
 	}
 
-	public Cliente() {
-	}
+	public Cliente(String nome, String endereco) {
+        this.nome = nome;
+        this.endereco = endereco;
+    }
 }

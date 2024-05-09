@@ -2,8 +2,10 @@ package com.br.fatecrl.conta.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="tb_pessoaJuridica")
 public class PessoaJuridica extends Cliente {
     private static final long serialVersionUID = 1L;
 
@@ -12,7 +14,10 @@ public class PessoaJuridica extends Cliente {
     @Column(name="nm_ramo_atividade", length=20)
     private String ramoAtividade;
 
-    public PessoaJuridica() {
+    public PessoaJuridica(String nome, String endereco, String cnpj, String ramoAtividade) {
+        super(nome, endereco);
+        this.cnpj = cnpj;
+        this.ramoAtividade = ramoAtividade;
     }
 
 	public String getCnpj() {

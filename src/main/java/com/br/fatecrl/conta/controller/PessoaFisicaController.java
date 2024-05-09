@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.br.fatecrl.conta.model.PessoaFisica;
 import com.br.fatecrl.conta.service.PessoaFisicaService;
@@ -22,7 +24,8 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
-
+@RestController
+@RequestMapping("/pessoasFisica")
 public class PessoaFisicaController implements IController<PessoaFisica>{
     @Autowired
 	private PessoaFisicaService service;
