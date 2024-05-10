@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,7 +21,6 @@ import com.br.fatecrl.conta.service.PessoaFisicaService;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
@@ -35,12 +35,10 @@ public class PessoaFisicaController implements IController<PessoaFisica>{
 	@ApiResponses(value = {
 			@ApiResponse(responseCode = "200"
 					   , description = "Resultado com sucesso"
-			//		   , content = {@Content(mediaType = "application/json")}
 			),
 			@ApiResponse(responseCode = "500"
 			           , description = "Erro interno do servidor"
-			//           , content = {@Content(mediaType = "application/json")} 
-			)
+					   )
 	})
 	@Operation(summary = "Retorna a lista de pessoas fisicas")
 	public ResponseEntity<List<PessoaFisica>> getAll(){
@@ -53,7 +51,6 @@ public class PessoaFisicaController implements IController<PessoaFisica>{
 		PessoaFisica pessoa = service.findById(id);
 		if (pessoa != null) {
 			return ResponseEntity.ok(pessoa);
-			//HTTP 200 OK
 		}
 		return ResponseEntity.notFound().build();
 	}	

@@ -30,11 +30,9 @@ public class PessoaFisica extends Cliente {
 		this.profissao = profissao;
 	}
 
-	public PessoaFisica(String nome, String endereco, String cpf, String profissao) {
-        super(nome, endereco);
-        this.cpf = cpf;
-        this.profissao = profissao;
-    }
+	public PessoaFisica(){}
+
+
 
     // getters e setters
 }

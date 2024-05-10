@@ -14,12 +14,6 @@ public class PessoaJuridica extends Cliente {
     @Column(name="nm_ramo_atividade", length=20)
     private String ramoAtividade;
 
-    public PessoaJuridica(String nome, String endereco, String cnpj, String ramoAtividade) {
-        super(nome, endereco);
-        this.cnpj = cnpj;
-        this.ramoAtividade = ramoAtividade;
-    }
-
 	public String getCnpj() {
 		return cnpj;
 	}

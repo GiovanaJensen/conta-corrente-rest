@@ -30,8 +30,7 @@ public class PessoaFisicaService implements IService<PessoaFisica> {
 
 	@Override
 	public PessoaFisica create(PessoaFisica pessoa) {
-		repository.save(pessoa);
-		return pessoa;
+		return repository.save(pessoa);
 	}
 
 	@Override

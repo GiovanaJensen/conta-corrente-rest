@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.br.fatecrl.conta.model.PessoaJuridica;
@@ -21,6 +23,8 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
+@RestController
+@RequestMapping("/pessoasJuridicas")
 public class PessoaJuridicaController implements IController<PessoaJuridica>{
     @Autowired
 	private PessoaJuridicaService service;
@@ -37,7 +41,7 @@ public class PessoaJuridicaController implements IController<PessoaJuridica>{
 			//           , content = {@Content(mediaType = "application/json")} 
 			)
 	})
-	@Operation(summary = "Retorna a lista de pessoas fisicas")
+	@Operation(summary = "Retorna a lista de pessoas juridicas")
 	public ResponseEntity<List<PessoaJuridica>> getAll(){
 		return ResponseEntity.ok(service.findAll());
 	}
@@ -55,7 +59,7 @@ public class PessoaJuridicaController implements IController<PessoaJuridica>{
 	
 	@Override
 	@PostMapping
-	@Operation(summary = "Cria uma Pessoa Fisica")
+	@Operation(summary = "Cria uma pessoa juridica")
 	public ResponseEntity<PessoaJuridica> post(@RequestBody PessoaJuridica pessoa){
 		service.create(pessoa);
 
@@ -69,7 +73,7 @@ public class PessoaJuridicaController implements IController<PessoaJuridica>{
 	
 	@Override
 	@PutMapping
-	@Operation(summary = "Atualiza uma Pessoa Fisica")
+	@Operation(summary = "Atualiza uma Pessoa Juridica")
 	public ResponseEntity<PessoaJuridica> put(@RequestBody PessoaJuridica pessoa){
 		if (service.update(pessoa)) {
 			return ResponseEntity.ok(pessoa);
@@ -79,7 +83,7 @@ public class PessoaJuridicaController implements IController<PessoaJuridica>{
 
 	@Override
 	@PatchMapping
-	@Operation(summary = "Atualiza uma Pessoa Fisica")
+	@Operation(summary = "Atualiza uma Pessoa Juridica")
 	public ResponseEntity<PessoaJuridica> patch(@RequestBody PessoaJuridica pessoa){
 		if (service.update(pessoa)) {
 			return ResponseEntity.ok(pessoa);
@@ -89,7 +93,7 @@ public class PessoaJuridicaController implements IController<PessoaJuridica>{
 	
 	@Override
 	@DeleteMapping(value = "/{id}")
-	@Operation(summary = "Exclui uma Pessoa Fisica")
+	@Operation(summary = "Exclui uma Pessoa Juridica")
 	public ResponseEntity<PessoaJuridica> delete(@PathVariable("id") Long id){
 		if (service.delete(id)) {
 			return ResponseEntity.noContent().build();
